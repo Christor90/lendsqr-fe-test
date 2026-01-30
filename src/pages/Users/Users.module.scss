@@ -1,0 +1,81 @@
+@import '@/assets/styles/variables.scss';
+
+.usersPage {
+  flex: 1;
+  padding: $spacing-3xl;
+  background-color: $background-light;
+  min-height: calc(100vh - 80px);
+  overflow-y: auto;
+  margin-left: 280px;
+
+  @include responsive('md') {
+    margin-left: 240px;
+    padding: $spacing-2xl;
+  }
+
+  @include responsive('lg') {
+    margin-left: 0;
+    padding: $spacing-xl;
+  }
+
+  @include responsive('sm') {
+    padding: $spacing-lg;
+  }
+}
+
+.pageHeader {
+  margin-bottom: $spacing-3xl;
+
+  @include responsive('sm') {
+    margin-bottom: $spacing-2xl;
+  }
+}
+
+.pageTitle {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  color: $text-dark;
+  margin: 0;
+
+  @include responsive('md') {
+    font-size: $font-size-2xl;
+  }
+
+  @include responsive('sm') {
+    font-size: $font-size-xl;
+  }
+}
+
+.statsSection {
+  margin-bottom: $spacing-3xl;
+
+  @include responsive('sm') {
+    margin-bottom: $spacing-2xl;
+  }
+}
+
+.tableSection {
+  background-color: $background-white;
+  border-radius: $radius-lg;
+  padding: $spacing-2xl;
+  box-shadow: $shadow-sm;
+  margin-bottom: $spacing-2xl;
+
+  @include responsive('md') {
+    padding: $spacing-lg;
+  }
+
+  @include responsive('sm') {
+    padding: $spacing-md;
+  }
+}
+
+.paginationSection {
+  @include flex-between;
+  margin-top: $spacing-2xl;
+
+  @include responsive('sm') {
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+}

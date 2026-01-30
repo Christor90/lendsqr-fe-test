@@ -1,0 +1,143 @@
+@import '@/assets/styles/variables.scss';
+
+.loginForm {
+  width: 100%;
+  max-width: 500px;
+
+  @include responsive('sm') {
+    max-width: 100%;
+  }
+}
+
+.title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $text-dark;
+  margin-bottom: $spacing-sm;
+
+  @include responsive('sm') {
+    font-size: $font-size-xl;
+  }
+}
+
+.subtitle {
+  font-size: $font-size-base;
+  color: $text-light;
+  margin-bottom: $spacing-2xl;
+  font-weight: $font-weight-regular;
+
+  @include responsive('sm') {
+    font-size: $font-size-sm;
+  }
+}
+
+.form {
+  @include flex-column;
+  gap: $spacing-xl;
+}
+
+.formGroup {
+  @include flex-column;
+  gap: $spacing-sm;
+}
+
+.input {
+  width: 100%;
+  padding: $spacing-md;
+  padding-right: 40px;
+  border: 1px solid $border-color;
+  border-radius: $radius-md;
+  font-size: $font-size-base;
+  font-family: $font-family-primary;
+  color: $text-dark;
+  background-color: $background-white;
+  transition: all $transition-base;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: $text-lighter;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba(57, 205, 204, 0.1);
+  }
+}
+
+.passwordWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  .input {
+    width: 100%;
+    padding-right: 40px;
+  }
+}
+
+.togglePassword {
+  @include button-reset;
+  position: absolute;
+  right: $spacing-md;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $text-light;
+  transition: color $transition-base;
+  flex-shrink: 0;
+
+  &:hover {
+    color: $text-dark;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.forgotPassword {
+  font-size: $font-size-xs;
+  color: $primary-color;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  align-self: flex-start;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $primary-dark;
+    text-decoration: none;
+  }
+}
+
+.submitButton {
+  @include button-reset;
+  width: 100%;
+  padding: $spacing-md;
+  background-color: $primary-color;
+  color: $background-white;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-md;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all $transition-base;
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: $primary-dark;
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  @include responsive('sm') {
+    padding: $spacing-md $spacing-lg;
+    font-size: $font-size-sm;
+  }
+}

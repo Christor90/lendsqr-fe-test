@@ -1,0 +1,75 @@
+@import '@/assets/styles/variables.scss';
+
+.loginPage {
+  @include flex-center;
+  min-height: 100vh;
+  background-color: $background-white;
+
+  @include responsive('md') {
+    flex-direction: column;
+  }
+}
+
+.leftSection {
+  min-height: 100vh;
+
+  // flex: 1;
+  @include flex-column;
+  justify-content: center;
+  align-items: center;
+  padding: $spacing-3xl;
+  background-color: $background-light;
+
+  @include responsive('md') {
+    width: 100%;
+    padding: $spacing-xl;
+  }
+
+  @include responsive('sm') {
+    padding: $spacing-lg;
+    display: none;
+  }
+}
+
+.logoContainer {
+  width: 100%;
+  margin-bottom: $spacing-3xl;
+  padding: 0 $spacing-xl;
+}
+
+.logo {
+  height: 40px;
+  // margin-bottom: 90px;
+  width: auto;
+  object-fit: contain;
+}
+
+.illustrationContainer {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  @include flex-center;
+  margin-bottom: $spacing-2xl;
+}
+
+.illustration {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+.rightSection {
+  flex: 1;
+  @include flex-center;
+  padding: $spacing-3xl;
+
+  @include responsive('md') {
+    width: 100%;
+    padding: $spacing-xl;
+  }
+
+  @include responsive('sm') {
+    padding: $spacing-lg;
+  }
+}

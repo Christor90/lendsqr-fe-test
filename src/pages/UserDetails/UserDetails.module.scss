@@ -1,0 +1,409 @@
+@import '@/assets/styles/variables.scss';
+
+.userDetailsPage {
+  flex: 1;
+  padding: $spacing-3xl;
+  background-color: $background-light;
+  min-height: calc(100vh - 80px);
+  overflow-y: auto;
+  margin-left: 280px;
+
+  @include responsive('md') {
+    margin-left: 240px;
+    padding: $spacing-2xl;
+  }
+
+  @include responsive('lg') {
+    margin-left: 0;
+    padding: $spacing-xl;
+  }
+
+  @include responsive('sm') {
+    padding: $spacing-lg;
+  }
+}
+
+.backButton {
+  @include button-reset;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  color: $text-dark;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  margin-bottom: $spacing-2xl;
+  cursor: pointer;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $primary-color;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-2xl;
+
+  @include responsive('md') {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-lg;
+  }
+}
+
+.pageTitle {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-semibold;
+  color: $text-dark;
+
+  @include responsive('sm') {
+    font-size: $font-size-xl;
+  }
+}
+
+.actionButtons {
+  display: flex;
+  gap: $spacing-lg;
+
+  @include responsive('sm') {
+    width: 100%;
+    gap: $spacing-md;
+  }
+}
+
+.blacklistButton,
+.activateButton {
+  padding: $spacing-md $spacing-xl;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  transition: all $transition-base;
+  border: 1px solid;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  @include responsive('sm') {
+    flex: 1;
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-xs;
+  }
+}
+
+.blacklistButton {
+  background-color: transparent;
+  color: #e4033b;
+  border-color: #e4033b;
+
+  &:hover {
+    background-color: rgba(228, 3, 59, 0.05);
+  }
+}
+
+.activateButton {
+  background-color: transparent;
+  color: $primary-color;
+  border-color: $primary-color;
+
+  &:hover {
+    background-color: rgba(57, 205, 204, 0.05);
+  }
+}
+
+.profileCard {
+  background-color: $background-white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+  padding: $spacing-2xl;
+  margin-bottom: $spacing-xl;
+
+  @include responsive('md') {
+    padding: $spacing-lg;
+  }
+}
+
+.profileSection {
+  display: flex;
+  align-items: center;
+  gap: $spacing-3xl;
+
+  @include responsive('lg') {
+    flex-wrap: wrap;
+    gap: $spacing-2xl;
+  }
+
+  @include responsive('md') {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.avatarSection {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: $background-light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $primary-color;
+
+  @include responsive('sm') {
+    width: 80px;
+    height: 80px;
+
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.userName {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $text-dark;
+
+  @include responsive('sm') {
+    font-size: $font-size-lg;
+  }
+}
+
+.userId {
+  font-size: $font-size-sm;
+  color: $text-light;
+}
+
+.divider {
+  width: 1px;
+  height: 60px;
+  background-color: $border-color;
+
+  @include responsive('md') {
+    display: none;
+  }
+}
+
+.tierSection {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.sectionLabel {
+  font-size: $font-size-sm;
+  color: $text-light;
+  text-transform: uppercase;
+  font-weight: $font-weight-medium;
+}
+
+.stars {
+  display: flex;
+  gap: $spacing-xs;
+}
+
+.starFilled {
+  color: #f2c94c;
+  width: 16px;
+  height: 16px;
+}
+
+.starEmpty {
+  color: $border-color;
+  width: 16px;
+  height: 16px;
+}
+
+.accountSection {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.accountBalance {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $text-dark;
+
+  @include responsive('sm') {
+    font-size: $font-size-lg;
+  }
+}
+
+.bankInfo {
+  font-size: $font-size-sm;
+  color: $text-light;
+}
+
+.tabsContainer {
+  display: flex;
+  background-color: $background-white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+  margin-bottom: $spacing-xl;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $text-lighter;
+    border-radius: 2px;
+  }
+}
+
+.tab {
+  @include button-reset;
+  flex: 1;
+  padding: $spacing-lg $spacing-xl;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $text-light;
+  cursor: pointer;
+  transition: all $transition-base;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+
+  &:hover {
+    color: $primary-color;
+  }
+
+  @include responsive('sm') {
+    padding: $spacing-md $spacing-lg;
+    font-size: $font-size-xs;
+  }
+}
+
+.activeTab {
+  color: $primary-color;
+  border-bottom-color: $primary-color;
+}
+
+.contentSection {
+  background-color: $background-white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+  padding: $spacing-2xl;
+
+  @include responsive('md') {
+    padding: $spacing-lg;
+  }
+
+  @include responsive('sm') {
+    padding: $spacing-md;
+  }
+}
+
+.infoSection {
+  margin-bottom: $spacing-3xl;
+  padding-bottom: $spacing-3xl;
+  border-bottom: 1px solid $border-color;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.sectionTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $text-dark;
+  margin-bottom: $spacing-xl;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-2xl $spacing-xl;
+
+  @include responsive('lg') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include responsive('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include responsive('sm') {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.infoLabel {
+  font-size: $font-size-xs;
+  color: $text-light;
+  text-transform: uppercase;
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.5px;
+}
+
+.infoValue {
+  font-size: $font-size-sm;
+  color: $text-dark;
+  font-weight: $font-weight-medium;
+}
+
+.guarantorDivider {
+  height: 1px;
+  background-color: $border-color;
+  margin: $spacing-2xl 0;
+}
+
+.loading,
+.error {
+  padding: $spacing-3xl;
+  text-align: center;
+  font-size: $font-size-base;
+  color: $text-light;
+  background-color: $background-white;
+  border-radius: $radius-lg;
+}
+
+.error {
+  color: #e4033b;
+}
+
+.emptyState {
+  text-align: center;
+  padding: $spacing-3xl;
+  color: $text-light;
+}
+
+.emptySubtext {
+  margin-top: $spacing-sm;
+  font-size: $font-size-sm;
+  color: $text-lighter;
+}

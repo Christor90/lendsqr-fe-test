@@ -1,0 +1,204 @@
+@import '@/assets/styles/variables.scss';
+
+.paginationContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-2xl;
+  background-color: $background-white;
+  border-radius: $radius-lg;
+  margin-top: $spacing-2xl;
+  box-shadow: $shadow-sm;
+
+  @include responsive('md') {
+    padding: $spacing-lg;
+    flex-direction: column;
+    gap: $spacing-2xl;
+  }
+
+  @include responsive('sm') {
+    padding: $spacing-lg;
+    gap: $spacing-lg;
+    flex-direction: column;
+  }
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+
+  @include responsive('md') {
+    width: 100%;
+    justify-content: center;
+  }
+
+  @include responsive('sm') {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+
+  @include responsive('md') {
+    width: 100%;
+    justify-content: center;
+  }
+
+  @include responsive('sm') {
+    width: 100%;
+    gap: $spacing-sm;
+    overflow-x: auto;
+  }
+}
+
+.showingText {
+  font-size: $font-size-sm;
+  color: $text-light;
+  font-weight: $font-weight-medium;
+
+  @include responsive('sm') {
+    font-size: $font-size-xs;
+  }
+}
+
+.pageSelector {
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid $border-color;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  color: $text-dark;
+  background-color: $background-white;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: $primary-color;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba(57, 205, 204, 0.1);
+  }
+
+  @include responsive('sm') {
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-xs;
+  }
+}
+
+.ofText {
+  font-size: $font-size-sm;
+  color: $text-light;
+
+  strong {
+    color: $text-dark;
+    font-weight: $font-weight-semibold;
+  }
+
+  @include responsive('sm') {
+    font-size: $font-size-xs;
+  }
+}
+
+.pageNumbers {
+  display: flex;
+  gap: $spacing-sm;
+  align-items: center;
+
+  @include responsive('sm') {
+    gap: $spacing-xs;
+  }
+}
+
+.pageButton {
+  @include button-reset;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 $spacing-sm;
+  border: 1px solid $border-color;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $text-dark;
+  background-color: $background-white;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover:not(&.active) {
+    border-color: $primary-color;
+    color: $primary-color;
+  }
+
+  &.active {
+    background-color: $primary-color;
+    color: $background-white;
+    border-color: $primary-color;
+    font-weight: $font-weight-semibold;
+  }
+
+  @include responsive('sm') {
+    min-width: 32px;
+    height: 32px;
+    font-size: $font-size-xs;
+    padding: 0 $spacing-xs;
+  }
+}
+
+.ellipsis {
+  color: $text-light;
+  padding: 0 $spacing-xs;
+  font-size: $font-size-sm;
+
+  @include responsive('sm') {
+    font-size: $font-size-xs;
+  }
+}
+
+.navButton {
+  @include button-reset;
+  width: 36px;
+  height: 36px;
+  border: 1px solid $border-color;
+  border-radius: $radius-md;
+  color: $text-dark;
+  background-color: $background-white;
+  cursor: pointer;
+  transition: all $transition-base;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover:not(:disabled) {
+    border-color: $primary-color;
+    color: $primary-color;
+    background-color: rgba(57, 205, 204, 0.05);
+  }
+
+  &:disabled {
+    color: $text-lighter;
+    border-color: $border-color;
+    cursor: not-allowed;
+    background-color: $background-light;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  @include responsive('sm') {
+    width: 32px;
+    height: 32px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}

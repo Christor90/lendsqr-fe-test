@@ -1,0 +1,194 @@
+@import '@/assets/styles/variables.scss';
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0; // Changed from top: 100px
+  height: 100vh; // Changed from calc(100vh - 100px)
+  background-color: $background-white;
+  border-right: 1px solid #e5e7eb;
+  transition: width 0.3s ease;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 30; // Lower than header (header should be z-index: 50)
+  display: flex;
+  flex-direction: column;
+
+  &.open {
+    width: 283px;
+  }
+
+  &.collapsed {
+    width: 70px;
+
+    .menuLabel {
+      display: none;
+    }
+
+    .sectionTitle span {
+      display: none;
+    }
+
+    .chevron {
+      display: none;
+    }
+
+    .logoutButton span {
+      display: none;
+    }
+  }
+
+  @include responsive('lg') {
+    width: 70px;
+
+    .menuLabel {
+      display: none !important;
+    }
+  }
+}
+
+.toggleButton {
+  position: absolute;
+  top: 90px; // Adjusted to be below header
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: $text-light;
+  transition: all $transition-base;
+  z-index: 50;
+  border-radius: $radius-md;
+
+  &:hover {
+    background-color: $background-light;
+    color: $text-dark;
+  }
+
+  @include responsive('lg') {
+    display: none;
+  }
+}
+
+.sidebarContent {
+  flex: 1;
+  padding: 120px 0 $spacing-2xl 0; // Top padding to account for header height
+  overflow-y: auto;
+}
+
+.menuSection {
+  margin-bottom: $spacing-xl;
+}
+
+.sectionGroup {
+  margin-bottom: $spacing-lg;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: $spacing-md $spacing-xl;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $text-light;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all $transition-base;
+
+  &:hover {
+    background-color: $background-light;
+  }
+}
+
+.chevron {
+  transition: transform $transition-base;
+
+  &.expanded {
+    transform: rotate(180deg);
+  }
+}
+
+.menuList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menuItem {
+  margin-bottom: 4px;
+}
+
+.menuLink {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md $spacing-xl;
+  text-decoration: none;
+  color: $text-light;
+  font-size: $font-size-sm;
+  transition: all $transition-base;
+  border-left: 3px solid transparent;
+
+  &:hover {
+    background-color: rgba(57, 205, 204, 0.05);
+    color: $text-dark;
+  }
+
+  &.active {
+    background-color: rgba(57, 205, 204, 0.1);
+    color: $primary-color;
+    border-left-color: $primary-color;
+  }
+
+  &.collapsed {
+    justify-content: center;
+    padding: $spacing-md;
+  }
+}
+
+.menuIcon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuLabel {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebarFooter {
+  padding: $spacing-xl;
+  border-top: 1px solid #e5e7eb;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  width: 100%;
+  padding: $spacing-md;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $text-light;
+  font-size: $font-size-sm;
+  transition: all $transition-base;
+  border-radius: $radius-md;
+
+  &:hover {
+    background-color: rgba(228, 3, 59, 0.1);
+    color: #e4033b;
+  }
+
+  .sidebar.collapsed & {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,29 @@
+@import '@/assets/styles/variables.scss';
+
+.appLayout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.contentWrapper {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.mainContent {
+  flex: 1;
+  overflow-y: auto;
+  background-color: $background-light;
+  padding: $spacing-2xl;
+
+  @include responsive('lg') {
+    padding: $spacing-lg;
+  }
+
+  @include responsive('md') {
+    padding: $spacing-md;
+  }
+}

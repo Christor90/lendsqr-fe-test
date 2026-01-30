@@ -1,0 +1,238 @@
+@import '@/assets/styles/variables.scss';
+
+.tableWrapper {
+  width: 100%;
+  background-color: $background-white;
+  border-radius: $radius-lg;
+  overflow: visible;
+  box-shadow: $shadow-sm;
+}
+
+.tableContainer {
+  width: 100%;
+
+  @include responsive('md') {
+    overflow-x: auto;
+  }
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $text-lighter;
+    border-radius: 3px;
+
+    &:hover {
+      background: $text-light;
+    }
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: $font-size-sm;
+}
+
+.tableHead {
+  background-color: $background-light;
+  border-bottom: 2px solid $border-color;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.headerRow {
+  display: table-row;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.headerCell {
+  padding: $spacing-md $spacing-md;
+  text-align: left;
+  font-weight: $font-weight-semibold;
+  color: $text-dark;
+  text-transform: uppercase;
+  font-size: $font-size-xs;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  border-right: 1px solid $border-color;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  @include responsive('sm') {
+    padding: $spacing-md $spacing-sm;
+    font-size: 0.65rem;
+  }
+}
+
+.headerCellWrapper {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  position: relative;
+}
+
+.sortButton {
+  @include button-reset;
+  color: $text-dark;
+  cursor: pointer;
+  font-size: $font-size-xs;
+  transition: color $transition-base;
+  padding: $spacing-xs;
+
+  &:hover {
+    color: $text-dark;
+  }
+}
+
+.tableBody {
+  display: table-row-group;
+}
+
+.bodyRow {
+  border-bottom: 1px solid $border-color;
+  transition: background-color $transition-base;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(57, 205, 204, 0.05);
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  @include responsive('sm') {
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+.bodyCell {
+  padding: $spacing-md $spacing-md;
+  text-align: left;
+  color: $text-dark;
+  border-right: 1px solid $border-color;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  @include responsive('sm') {
+    padding: $spacing-md $spacing-sm;
+    font-size: $font-size-xs;
+  }
+}
+
+.cellText {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+
+  @include responsive('md') {
+    max-width: 150px;
+  }
+
+  @include responsive('sm') {
+    max-width: 100px;
+  }
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $radius-md;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  white-space: nowrap;
+  text-transform: capitalize;
+
+  &.status-active {
+    background-color: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+  }
+
+  &.status-inactive {
+    background-color: rgba(107, 114, 128, 0.1);
+    color: #6b7280;
+  }
+
+  &.status-pending {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+  }
+
+  &.status-blacklisted {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+  }
+}
+
+.actionButton {
+  @include button-reset;
+  color: $text-light;
+  cursor: pointer;
+  transition: color $transition-base;
+  padding: $spacing-sm;
+  border-radius: $radius-md;
+
+  &:hover {
+    color: $primary-color;
+    background-color: rgba(57, 205, 204, 0.1);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.tableFooter {
+  padding: $spacing-lg $spacing-md;
+  background-color: $background-light;
+  border-top: 1px solid $border-color;
+}
+
+.footerInfo {
+  font-size: $font-size-sm;
+  color: $text-light;
+
+  strong {
+    color: $text-dark;
+    font-weight: $font-weight-semibold;
+  }
+
+  @include responsive('sm') {
+    font-size: $font-size-xs;
+  }
+}
+
+.loadingContainer {
+  padding: $spacing-3xl;
+  text-align: center;
+  color: $text-light;
+  font-size: $font-size-base;
+  background-color: $background-white;
+  border-radius: $radius-lg;
+}
+
+.loadingCell {
+  padding: $spacing-3xl;
+  text-align: center;
+  color: $text-light;
+  font-size: $font-size-base;
+}

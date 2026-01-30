@@ -1,0 +1,166 @@
+@import '@/assets/styles/variables.scss';
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-2xl;
+  margin-bottom: $spacing-3xl;
+
+  @include responsive('md') {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-lg;
+    margin-bottom: $spacing-2xl;
+  }
+
+  @include responsive('sm') {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.statsCard {
+  //   display: flex;
+  align-items: flex-start;
+  gap: $spacing-lg;
+  padding: $spacing-2xl;
+  background-color: $background-white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+  transition: all $transition-base;
+  border: 1px solid transparent;
+
+  &:hover {
+    box-shadow: $shadow-md;
+    transform: translateY(-4px);
+  }
+
+  @include responsive('md') {
+    padding: $spacing-lg;
+    gap: $spacing-md;
+  }
+
+  @include responsive('sm') {
+    padding: $spacing-lg;
+  }
+
+  &.color-primary {
+    .iconWrapper {
+      background-color: rgba(57, 205, 204, 0.15);
+      color: #df1651;
+
+      svg {
+        color: #df1651;
+      }
+    }
+  }
+
+  &.color-secondary {
+    .iconWrapper {
+      background-color: rgba(57, 205, 204, 0.15);
+      color: #5b21b6;
+
+      svg {
+        color: #5b21b6;
+      }
+    }
+  }
+
+  &.color-tertiary {
+    .iconWrapper {
+      background-color: rgba(57, 205, 204, 0.15);
+      color: #f97316;
+
+      svg {
+        color: #f97316;
+      }
+    }
+  }
+
+  &.color-quaternary {
+    .iconWrapper {
+      background-color: rgba(57, 205, 204, 0.15);
+      color: #0ea5e9;
+
+      svg {
+        color: #0ea5e9;
+      }
+    }
+  }
+}
+
+.iconWrapper {
+  flex-shrink: 0;
+  width: 60px;
+  margin-bottom: 20px;
+  height: 60px;
+  border-radius: $radius-lg;
+  @include flex-center;
+  transition: all $transition-base;
+
+  @include responsive('md') {
+    width: 50px;
+    height: 50px;
+
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  @include responsive('sm') {
+    width: 45px;
+    height: 45px;
+
+    svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+}
+
+.content {
+  flex: 1;
+  @include flex-column;
+  gap: $spacing-xs;
+}
+
+.title {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $text-light;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+
+  @include responsive('sm') {
+    font-size: 0.7rem;
+  }
+}
+
+.value {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $text-dark;
+  margin: 0;
+
+  @include responsive('md') {
+    font-size: $font-size-xl;
+  }
+
+  @include responsive('sm') {
+    font-size: $font-size-lg;
+  }
+}
+
+.gridLoading,
+.gridError {
+  padding: $spacing-3xl;
+  text-align: center;
+  color: $text-light;
+  font-size: $font-size-base;
+}
+
+.gridError {
+  color: $error-color;
+}

@@ -1,0 +1,245 @@
+@import '@/assets/styles/variables.scss';
+
+.header {
+  width: 100%;
+  height: 80px;
+  background-color: $background-white;
+  border-bottom: 1px solid $border-color;
+  display: flex;
+  align-items: center;
+  padding: 0 $spacing-2xl;
+  box-shadow: $shadow-sm;
+  position: fixed;
+  top: 0;
+  z-index: 50;
+  left: 0;
+  right: 0;
+
+  @include responsive('md') {
+    height: 70px;
+    padding: 0 $spacing-lg;
+  }
+
+  @include responsive('sm') {
+    height: 60px;
+    padding: 0 $spacing-md;
+  }
+}
+
+.headerContent {
+  width: 100%;
+  @include flex-between;
+  gap: $spacing-2xl;
+
+  @include responsive('md') {
+    gap: $spacing-lg;
+  }
+
+  @include responsive('sm') {
+    gap: $spacing-md;
+  }
+}
+
+.logoSection {
+  flex-shrink: 0;
+  min-width: 120px;
+
+  @include responsive('sm') {
+    min-width: 100px;
+  }
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+
+  @include responsive('sm') {
+    height: 35px;
+  }
+}
+
+.searchBar {
+  flex: 1;
+  max-width: 400px;
+  position: relative;
+  @include flex-center;
+
+  @include responsive('md') {
+    max-width: 300px;
+  }
+
+  @include responsive('sm') {
+    max-width: 100%;
+    display: none;
+  }
+}
+
+.searchInput {
+  width: 100%;
+  padding: $spacing-md $spacing-lg;
+  padding-right: 45px;
+  border: 1px solid $border-color;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  font-family: $font-family-primary;
+  color: $text-dark;
+  background-color: $background-light;
+  transition: all $transition-base;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: $text-lighter;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    background-color: $background-white;
+    box-shadow: 0 0 0 3px rgba(57, 205, 204, 0.1);
+  }
+}
+
+.searchButton {
+  @include button-reset;
+  position: absolute;
+  right: $spacing-md;
+  color: $background-white;
+  background-color: $primary-color;
+  padding: $spacing-sm;
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color $transition-base;
+
+  &:hover {
+    background-color: $primary-dark;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.rightSection {
+  display: flex;
+  margin-right: 50px;
+  align-items: center;
+  gap: $spacing-2xl;
+  flex-shrink: 0;
+
+  @include responsive('sm') {
+    gap: $spacing-lg;
+  }
+}
+
+.docsLink {
+  font-size: $font-size-base;
+  color: $text-dark;
+  font-weight: $font-weight-medium;
+  transition: color $transition-base;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary-color;
+  }
+
+  @include responsive('sm') {
+    font-size: $font-size-sm;
+  }
+}
+
+.notificationButton {
+  @include button-reset;
+  color: $text-dark;
+  cursor: pointer;
+  transition: color $transition-base;
+  position: relative;
+
+  &:hover {
+    color: $primary-color;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  @include responsive('sm') {
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: $error-color;
+    border-radius: 50%;
+    top: -4px;
+    right: -4px;
+  }
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  cursor: pointer;
+  transition: all $transition-base;
+  padding: $spacing-sm;
+  border-radius: $radius-md;
+
+  &:hover {
+    background-color: $background-light;
+  }
+
+  @include responsive('sm') {
+    gap: $spacing-sm;
+  }
+}
+
+.userImage {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid $primary-color;
+
+  @include responsive('sm') {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+
+  @include responsive('sm') {
+    display: none;
+  }
+}
+
+.userName {
+  font-size: $font-size-base;
+  color: $text-dark;
+  font-weight: $font-weight-semibold;
+
+  @include responsive('md') {
+    font-size: $font-size-sm;
+  }
+}
+
+.chevron {
+  color: $text-light;
+  width: 20px;
+  height: 20px;
+}
